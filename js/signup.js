@@ -1,21 +1,28 @@
-var firstName = document.getElementById("form__fname");
-var lastName = document.getElementById("form__lname");
-var email = document.getElementById("form__email");
-var password = document.getElementById("form__password");
-
-function sign(e){
+function signUp(e) {
     e.preventDefault();
+    const bookForm = document.getElementById('form');
+    const { email, password, firstName, lastName } = bookForm;
     const user = {
-      firstName: e.target.firstName.value,
-      lastName: e.target.lastName.value,
-      email: e.target.email.value,
-      password: e.target.password.value,
+        email: email.value,
+        password: password.value,
+        firstName: firstName.value,
+        lastName: lastName.value
     };
-  console.log(user);
-    fetch('http://book.alitechbot.uz/api/sign-up', {
-      method: 'POST',
-      body: JSON.stringify(user)
-    })
-    .then((res) => res.json())
-    .then(res => console.log(res))
-  }
+
+    fetch("https://book.alitechbot.uz/api/sign-up", {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(user),
+    }).then(response => response.json())
+        .then(result => {
+            console.log(result.msg);
+            if (result.success) {
+                confirm('Your are logged in successfully')
+                localStorage.setItem('token', JSON.stringify(result.token));
+                window.location.pathname = './login.html'
+            } else {
+                confirm('Hatolik')
+            }
+        })
+        .catch(error => console.log('error', error));
+}

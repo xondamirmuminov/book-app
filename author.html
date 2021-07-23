@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" integrity="sha512-iBBXm8fW90+nuLcSKlbmrPcLa0OT92xO1BIsZ+ywDWZCvqsWgccV3gFoRBv0z+8dLJgyAHIhR35VZc2oM/gI1w==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <header class="header">
+        <div class="container">
+            <nav class="header__inner">
+                <ul class="header__list">
+                    <a class="header__logo" href="form.html">
+                        <span>Book<i id="header__logo-icon" class="fas fa-book-open"></i>Store</span>
+                    </a>
+                    <li class="header__list-item">
+                        <a class="header__list-link" href="index.html">
+                            Books
+                        </a>
+                    </li>
+                    <li class="header__list-item">
+                            <a class="header__list-link" href="#">
+                            Authors
+                        </a>
+                    </li>
+                    <li class="header__list-item">
+                        <a class="header__list-link" href="form.html">
+                            <i id="header__list-link-icon" class="fas fa-plus-square"></i>
+                            <span>Book</span>
+                        </a>
+                    </li>
+                    <li class="header__list-item">
+                        <a class="header__list-link" href="addAuthor.html">
+                            <i id="header__list-link-icon" class="fas fa-plus-square"></i>
+                            <span>Author</span>
+                        </a>
+                    </li>
+                </ul>
+                <ul class="header__list">
+                    <li class="header__list-item">
+                        <a class="header__list-link" href="#">
+                           <img class="header__list-img" src="img/images.jpg" alt="">
+                           <span>EN</span>
+                        </a>
+                    </li>
+                    <li class="header__list-item">
+                        <a class="header__list-link" href="#">
+                            Login
+                        </a>
+                    </li>
+                    <li class="header__list-item">
+                            <a class="header__list-link" href="sinIn.html">
+                            Sign In
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+    <section class="home">
+        <div class="container">
+            <div class="home__inner">
+                <h1 class="home__title">
+                    Welcome.
+                </h1>
+                <h3 class="home__text">
+                    Millions of books, books authors.Explore now.
+                </h3>
+                <div class="home__inner-inp">
+                    <input type="text" class="home__inp" id="home-inp" placeholder="Search book">
+                    <button class="home__btn">Search</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section class="about">
+        <div class="container">
+            <div class="about__inner">
+                <h2 class="about__title">
+                   Authors
+                </h2>
+                <div id="about__inner-card">
+                    
+                </div>
+            </div>
+        </div>
+    </section>
+    <script src="./js/author.js"></script>
+</body>
+</html>
