@@ -12,7 +12,7 @@ fetch('https://book.alitechbot.uz/api/books')
                 imageFinalLink = item.imageLink
             }
             bookInner.innerHTML += `
-            <div id="${item._id}" class="about__card" onclick="takeId(this)">
+            <div id="${item._id}" class="about__card">
                 <img class="about__card-img" src="${imageFinalLink}"/>
                 <h3 class="about__card-title">${item.title}</h3>
                 <p class=""about__card-text>${item.year}</p>
@@ -109,14 +109,10 @@ function updateBook(e) {
 function getBook(event) {
     let bookIdTwo = event.parentElement.id;
     console.log(bookIdTwo)
-    fetch(`https://book.alitechbot.uz/api/books/${bookIdTwo}`)
-        .then(res => res.json())
-        .then(data => {
-            localStorage.setItem('book', JSON.stringify(data.payload))
-            if (localStorage.book.title === data.payload.title) {
-                window.location.pathname = 'book.html';
-            }
-        })
+    localStorage.setItem('bookId', JSON.stringify(bookIdTwo))
+    if (localStorage.bookId) {
+        window.location.pathname = 'book.html';
+    }
 }
 
 function searchBook(event) {
