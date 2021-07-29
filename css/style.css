@@ -121,7 +121,7 @@ body {
     font-size: 16px;
 }
 
-#about__inner-card {
+#about__inner-card, #myabout__inner-card {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
@@ -307,6 +307,43 @@ body {
     width: 100px;
     border: 0;
     border-radius: 4px;
+    cursor: pointer;
+}
+
+#comment-inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 auto;
+    margin-top: 30px;
+    width: 700px;
+    position: relative;
+}
+
+#comment-inner div img {
+    width: 100%;
+    max-width: 85px;
+}
+
+.comment__inner-text {
+    border-radius: 4px;
+    background: white;
+    color: midnightblue;
+    font-size: 17px;
+    text-align: right;
+    padding: 30px;
+    width: 500px;
+    height: 140px;
+}
+
+.comment__inner-text::before {
+    content: '';
+    position: absolute;
+    background: white;
+    left: 22%;
+    width: 50px;
+    clip-path: polygon(31% 49%, 100% 100%, 100% 0);
+    height: 60px;
 }
 
 #form {

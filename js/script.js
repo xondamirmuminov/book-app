@@ -2,7 +2,7 @@ let bookList = document.getElementById('book-list');
 let bookInner = document.getElementById('about__inner-card');
 var book;
 
-fetch('https://book.alitechbot.uz/api/books')
+fetch('https://book.alitechbot.uz/api/books?pageSize=50')
     .then(res => res.json())
     .then(data => {
         book = data.payload.docs;

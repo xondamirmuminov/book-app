@@ -48,44 +48,52 @@ fetch(`https://book.alitechbot.uz/api/books/${parseId}`)
                     <img class"comment__img" src="../img/admin.svg"/>
                     <h3>${item.user.firstName} ${item.user.lastName}</h3>
                 </div>
-                <div>
+                <div class="comment__inner-text">
                     <p>${item.text}</p> 
                 </div>
              </div>`
         })
     });
 
-// let commentInner = document.getElementById('comment-inner');
 
-// bookParse.comment.forEach(item => {
-//     let commentText = `
-//         <div id="comment">${item.text}</div>
-//      `
-//     commentInner.innerHTML += commentText;
-// })
-
-// let inpValue = document.getElementById('home__card-inp');
-
-// function sendComment(event) {
-//     event.preventDefault();
-//     let homeCard = document.getElementById('home__card');
-//     const bookId3 = homeCard.parentElement.id;
-//     fetch('https://book.alitechbot.uz/api/books/comment', {
-//         method: "POST",
-//         body: JSON.stringify({
-//             bookId: bookId3,
-//             text: inpValue.value
-//         }),
-//         headers: {
-//             "Content-Type": "application/json",
-//             Authorization: `Bearer ${localStorage.token} `
-//         }
-//     })
-//         .then(res => res.json())
-//         .then(data => {
-//             commentInner.innerHTML += `<p>${data.payload.text}</p>`
-//         })
-// }
-
-
-// console.log(bookParse);
+async function sendComment(event) {
+    event.preventDefault();
+    let homeCard = document.getElementById('home__card');
+    const bookId3 = homeCard.parentElement.id;
+    var inpValue = document.getElementById('home__card-inp');
+    const commet = await fetch('https://book.alitechbot.uz/api/books/comment', {
+        method: "POST",
+        body: JSON.stringify({
+            bookId: bookId3,
+            text: inpValue.value,
+        }),
+        headers: {
+            "Content-Type": "application/json",
+            Authorization: `Bearer ${localStorage.token} `
+        }
+    })
+        .then(res => res.json()).catch(err => console.log(err));
+    console.log(commet.payload.user)
+    const user = await fetch(`https://book.alitechbot.uz/api/users/`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json',
+            'Authorization': `Bearer ${localStorage.token}`
+        }
+    })
+        .then(res => res.json())
+        .then(data => {
+            console.log(data)
+            home.innerHTML += `
+                <div id="comment-inner">
+                <div>
+                    <img class"comment__img" src="../img/admin.svg"/>
+                    <h3>${data.user.firstName} ${data.user.lastName}</h3>
+                </div>
+                <div class="comment__inner-text">
+                    <p>${commet.payload.text}</p>
+                </div>
+            </div> `
+        })
+        .catch(err => console.log(err))
+}
