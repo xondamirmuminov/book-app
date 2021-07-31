@@ -19,7 +19,8 @@ function signUp(e) {
             if (result.success) {
                 confirm('Your are logged in successfully')
                 localStorage.setItem('token', JSON.stringify(result.token));
-                window.location.pathname = './login.html'
+                localStorage.setItem('user', JSON.stringify(result.user));
+                window.location.pathname = './login.html';
             } else {
                 confirm('Hatolik')
             }

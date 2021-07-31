@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -12,15 +13,18 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
-    <form id="form" action="POST" onsubmit="addAuthor(event)">
-        <a href="./index.html" class="form__back">
-            < Back</a>
+    <a href="./index.html" class="form__back">
+        < Back</a>
+            <form id="form" action="POST" onsubmit="addAuthor(event)">
                 <h2 class="form__title">Add New Author</h2>
-                <input class="form__inp" type="text" name="firstName" id="form__firstName" placeholder="Author First Name">
+                <input class="form__inp" type="text" name="firstName" id="form__firstName"
+                    placeholder="Author First Name">
                 <input class="form__inp" type="text" name="lastName" id="form__lastName" placeholder="Author Last Name">
                 <button id="form__btn">Create</button>
-    </form>
-    <script src="./js/add.js"></script>
+            </form>
+            <script src="./js/add.js"></script>
 </body>
+
 </html>

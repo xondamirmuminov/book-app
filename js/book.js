@@ -7,7 +7,7 @@ fetch(`https://book.alitechbot.uz/api/books/${parseId}`)
     .then(data => {
         let { book, comment } = data.payload;
         console.log(data.payload)
-        let imageFinalLink = `https://book.alitechbot.uz/${book.imageLink}`
+        let imageFinalLink = book.imageLink;
         if (book.imageLink.startsWith('https')) {
             imageFinalLink = book.imageLink;
         }

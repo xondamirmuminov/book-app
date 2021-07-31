@@ -15,9 +15,9 @@
 </head>
 
 <body>
-    <form id="form" action="POST" onsubmit="signUp(event)">
-        <a href="./index.html" class="form__back">
-            < Back</a>
+    <a href="./index.html" class="form__back">
+        < Back</a>
+            <form id="form" action="POST" onsubmit="signUp(event)">
                 <h2 class="form__title">Sign Up</h2>
                 <input class="form__inp" type="text" name="firstName" id="form__fname" placeholder="First Name">
                 <input class="form__inp" type="text" name="lastName" id="form__lname" placeholder="Last Name">
@@ -25,8 +25,8 @@
                 <input class="form__inp" type="password" name="password" id="form__password"
                     placeholder="Your password">
                 <button id="form__btn" type="submit">Sign Up</button>
-    </form>
-    <script src="./js/signup.js"></script>
+            </form>
+            <script src="./js/signup.js"></script>
 </body>
 
 </html>

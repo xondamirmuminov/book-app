@@ -7,7 +7,7 @@ fetch('https://book.alitechbot.uz/api/books?pageSize=50')
     .then(data => {
         book = data.payload.docs;
         data.payload.docs.forEach(item => {
-            let imageFinalLink = `https://book.alitechbot.uz/${item.imageLink}`
+            let imageFinalLink = item.imageLink;
             if (item.imageLink.startsWith('https')) {
                 imageFinalLink = item.imageLink
             }
@@ -17,14 +17,6 @@ fetch('https://book.alitechbot.uz/api/books?pageSize=50')
                 <h3 class="about__card-title">${item.title}</h3>
                 <p class=""about__card-text>${item.year}</p>
                 <button onclick="getBook(this)" class="about__card-btn">more</button>
-                <div class="about__card-inner-btn">
-                    <button onclick="deleteBook(this)" class="about__card-del-btn">
-                        <i class="far fa-trash-alt"></i>
-                    </button>
-                    <button onclick="editBook(this)" class="about__card-edit-btn">
-                        <i class="fas fa-pen"></i>
-                    </button
-                </div>
              </div>`
         });
     })
@@ -83,7 +75,6 @@ function updateBook(e) {
         title: title.value,
         pages: pages.value,
         year: year.value,
-        imageLink: imageLink.value,
         price: price.value
     }
     console.log(bookId);
@@ -130,9 +121,6 @@ function searchBook(event) {
                     <h3 class="about__card-title">${item.title}</h3>
                     <p class=""about__card-text>${item.year}</p>
                     <button onclick="getBook()" class="about__card-btn">more</button>
-                    <button onclick="deleteBook(this)" class="about__card-del-btn">
-                        <i class="far fa-trash-alt"></i>
-                    </button
                 </div>
                 `
                 bookInner.innerHTML = card;

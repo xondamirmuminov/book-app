@@ -50,7 +50,7 @@
                         </a>
                     </li>
                 </ul>
-                <ul class="header__list">
+                <ul class="header__list" id="header__list-sign">
                     <li class="header__list-item">
                         <a class="header__list-link" href="login.html">
                             Login
@@ -106,7 +106,6 @@
                     <input type="number" name="edit-price" id="edit-price" />
                     <input type="number" name="edit-pages" id="edit-pages" />
                     <input type="number" name="edit-year" id="edit-year" />
-                    <input type="text" name="edit-imageLink" id="edit-imageLink" />
                     <button type="submit">Save Changes</button>
                 </form>
             </div>
@@ -119,6 +118,19 @@
                 location.pathname = './sinIn.html';
             }
         };
+
+
+        function signOut() {
+            localStorage.clear()
+        }
+        let list = document.getElementById('header__list-sign')
+        if (localStorage.token) {
+            list.innerHTML = ` <li class="header__list-item">
+                        <li style="cursor: pointer;" onclick ="signOut()" class="header__list-link" >
+                            Sign Out
+                        </li>
+                    </li>`
+        }
 
         setInterval(checkTokenExist, 1000, window);
     </script>

@@ -23,7 +23,7 @@ function addBook(e) {
   var description = document.getElementById("form__description");
 
   console.log(imageLink.files[0])
-  var formData = new FormData();
+  let formData = new FormData();
   formData.append("title", title.value)
   formData.append("price", price.value)
   formData.append("pages", pages.value)

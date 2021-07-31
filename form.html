@@ -15,9 +15,9 @@
 </head>
 
 <body>
-    <form id="form" action="POST" onsubmit="addBook(event)">
-        <a href="./index.html" class="form__back">
-            < Back</a>
+    <a href="./index.html" class="form__back">
+        < Back</a>
+            <form id="form" action="POST" onsubmit="addBook(event)">
                 <h2 class="form__title">Add New Book</h2>
                 <input class="form__inp" type="text" name="title" id="form__title" placeholder="Book title">
                 <input class="form__inp" type="text" name="pages" id="form__page" placeholder="Number of pages">
@@ -31,8 +31,8 @@
 
                 </select>
                 <button id="form__btn">Create</button>
-    </form>
-    <script src="js/add.js"></script>
+            </form>
+            <script src="js/add.js"></script>
 </body>
 
 </html>
